@@ -24,7 +24,11 @@ class App extends Component {
   }
 
   formSubmitHandler = (dataForm) => {
-    if (this.state.contacts.find((el) => el.name === dataForm.name)) {
+    if (
+      this.state.contacts.find(
+        (el) => el.name.toLowerCase() === dataForm.name.toLowerCase()
+      )
+    ) {
       alert(`${dataForm.name} is already in contacts.`);
     } else {
       return this.setState((prevState) => {
